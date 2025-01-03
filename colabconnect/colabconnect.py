@@ -13,7 +13,7 @@ message = """
 
 
 def start_tunnel() -> None:
-    command = "./code tunnel --accept-server-license-terms --name colab-connect"
+    command = "./cursor tunnel --accept-server-license-terms --name cc"
     p = subprocess.Popen(
         command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT
     )
@@ -49,11 +49,11 @@ def colabconnect() -> None:
         print("Mounting Google Drive...")
         drive = import_module("google.colab.drive")
         drive.mount("/content/drive")
-    
+
         # Create a folder on drive to store all the code files
         drive_folder = '/content/drive/MyDrive/colab/'
         Path(drive_folder).mkdir(parents=True, exist_ok=True)
-    
+
         # Make a /colab path to easily access the folder
         run(f'ln -s {drive_folder} /')
 
@@ -62,11 +62,11 @@ def colabconnect() -> None:
     run("pip3 install -U ipykernel")
     run("apt install htop -y")
 
-    print("Installing vscode-cli...")
+    print("Installing cursor_cli...")
     run(
-        "curl -Lk https://code.visualstudio.com/sha/download?build=stable&os=cli-alpine-x64 --output vscode_cli.tar.gz"
+        "curl -Lk https://api2.cursor.sh/updates/download-latest?os=cli-alpine-x64 --output cursor_cli.tar.gz"
     )
-    run("tar -xf vscode_cli.tar.gz")
+    run("tar -xf cursor_cli.tar.gz")
 
     print("Starting the tunnel")
     start_tunnel()
