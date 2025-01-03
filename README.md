@@ -1,5 +1,7 @@
 <img src="https://user-images.githubusercontent.com/8587189/232764837-40865915-1cef-40da-989b-f19773b15de1.png" align="right" width="75" height="75">
 
+#  change use cursor_cli to conenect
+
 # colab-connect
 
 Access Google Colab directly from your local VS Code editor using [remote tunnels](https://code.visualstudio.com/docs/remote/tunnels).
